@@ -10,4 +10,11 @@ router.get('/', function (req, res) {
   })
 })
 
+router.post('/', function (req, res) {
+  const color = req.body.color
+  db.addColor(color, (err, colorName) => {
+    res.json({message: 'Color add successfully.'})
+  })
+})
+
 module.exports = router

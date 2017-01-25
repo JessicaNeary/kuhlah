@@ -1,18 +1,20 @@
 import { connect } from 'react-redux'
 
-import { getNewColor } from '../actions'
+import { getNewColor, addColor } from '../actions'
 import Color from '../components/Color'
 
 const mapStateToProps = state => {
   return {
     color: state.color,
-    gettingNewColor: state.gettingNewColor
+    gettingNewColor: state.gettingNewColor,
+    errorMessage: state.errorMessage
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    getNewColor: () => { dispatch(getNewColor()) }
+    getNewColor: () => { dispatch(getNewColor()) },
+    postNewColor: color => { dispatch(addColor(color)) }
   }
 }
 
